@@ -6,10 +6,10 @@ module MillerRabin
     number = 1_u64
     while count > 0
       if count % 2 == 1
-        number = ((BigInt.new(number) * n) % mod).to_u64
+        number = ((BigInt.new(number) * BigInt.new(n)) % BigInt.new(mod)).to_u64
       end
       count >>= 1
-      n = ((BigInt.new(n) * n) % mod).to_u64
+      n = ((BigInt.new(n) * BigInt.new(n)) % BigInt.new(mod)).to_u64
     end
 
     return number
